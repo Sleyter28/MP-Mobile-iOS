@@ -1,0 +1,691 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA1FCAD61DE748F900059F19 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAD51DE748F900059F19 /* SWRevealViewController.m */; };
+		EA1FCADA1DE7BFA500059F19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */; };
+		EA1FCADC1DE7BFCD00059F19 /* FacturacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */; };
+		EA1FCADE1DE7BFE300059F19 /* CxCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */; };
+		EA1FCAE01DE7BFF400059F19 /* CxPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */; };
+		EA1FCAE21DE7C00500059F19 /* InventarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAE11DE7C00500059F19 /* InventarioViewController.swift */; };
+		EA1FCAE41DE7C01A00059F19 /* CdCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAE31DE7C01A00059F19 /* CdCViewController.swift */; };
+		EA6DECE71DE8EED50085584B /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF9F1DE1DE8CF8000B7AB6B /* Charts.framework */; };
+		EA6DECE81DE8EED50085584B /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EAF9F1DE1DE8CF8000B7AB6B /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EAF91D041DE5DB8100A04AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF91D031DE5DB8100A04AC9 /* AppDelegate.swift */; };
+		EAF91D061DE5DB8100A04AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF91D051DE5DB8100A04AC9 /* ViewController.swift */; };
+		EAF91D091DE5DB8100A04AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF91D071DE5DB8100A04AC9 /* Main.storyboard */; };
+		EAF91D0B1DE5DB8100A04AC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF91D0A1DE5DB8100A04AC9 /* Assets.xcassets */; };
+		EAF91D191DE5DB8100A04AC9 /* MP_YoogoooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF91D181DE5DB8100A04AC9 /* MP_YoogoooTests.swift */; };
+		EAF91D241DE5DB8100A04AC9 /* MP_YoogoooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF91D231DE5DB8100A04AC9 /* MP_YoogoooUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA6DECE91DE8EED50085584B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+		EAF91D151DE5DB8100A04AC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF91CF81DE5DB8100A04AC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAF91CFF1DE5DB8100A04AC9;
+			remoteInfo = "MP-Yoogooo";
+		};
+		EAF91D201DE5DB8100A04AC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF91CF81DE5DB8100A04AC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAF91CFF1DE5DB8100A04AC9;
+			remoteInfo = "MP-Yoogooo";
+		};
+		EAF9F1DD1DE8CF8000B7AB6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		EAF9F1DF1DE8CF8000B7AB6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		EAF9F1E11DE8CF8000B7AB6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		EAF9F1E31DE8CF8000B7AB6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120FF1D811F1600D14B02;
+			remoteInfo = ChartsRealmTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EA325FC71DE8C9060048D3C2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EA6DECE81DE8EED50085584B /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EA1FCAD31DE748F800059F19 /* MP-Yoogooo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MP-Yoogooo-Bridging-Header.h"; sourceTree = "<group>"; };
+		EA1FCAD41DE748F900059F19 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		EA1FCAD51DE748F900059F19 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacturacionViewController.swift; sourceTree = "<group>"; };
+		EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CxCViewController.swift; sourceTree = "<group>"; };
+		EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CxPViewController.swift; sourceTree = "<group>"; };
+		EA1FCAE11DE7C00500059F19 /* InventarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventarioViewController.swift; sourceTree = "<group>"; };
+		EA1FCAE31DE7C01A00059F19 /* CdCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CdCViewController.swift; sourceTree = "<group>"; };
+		EAE967741DE7EA9600227144 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		EAF91D001DE5DB8100A04AC9 /* MP-Yoogooo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MP-Yoogooo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF91D031DE5DB8100A04AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAF91D051DE5DB8100A04AC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAF91D081DE5DB8100A04AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAF91D0A1DE5DB8100A04AC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAF91D0F1DE5DB8100A04AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF91D141DE5DB8100A04AC9 /* MP-YoogoooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MP-YoogoooTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF91D181DE5DB8100A04AC9 /* MP_YoogoooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MP_YoogoooTests.swift; sourceTree = "<group>"; };
+		EAF91D1A1DE5DB8100A04AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF91D1F1DE5DB8100A04AC9 /* MP-YoogoooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MP-YoogoooUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF91D231DE5DB8100A04AC9 /* MP_YoogoooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MP_YoogoooUITests.swift; sourceTree = "<group>"; };
+		EAF91D251DE5DB8100A04AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-2.3.0/Charts.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAF91CFD1DE5DB8100A04AC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA6DECE71DE8EED50085584B /* Charts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF91D111DE5DB8100A04AC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF91D1C1DE5DB8100A04AC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAE967591DE7E57700227144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAE967741DE7EA9600227144 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAF91CF71DE5DB8100A04AC9 = {
+			isa = PBXGroup;
+			children = (
+				EAF91D021DE5DB8100A04AC9 /* MP-Yoogooo */,
+				EAF91D171DE5DB8100A04AC9 /* MP-YoogoooTests */,
+				EAF91D221DE5DB8100A04AC9 /* MP-YoogoooUITests */,
+				EAF91D011DE5DB8100A04AC9 /* Products */,
+				EAE967591DE7E57700227144 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EAF91D011DE5DB8100A04AC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAF91D001DE5DB8100A04AC9 /* MP-Yoogooo.app */,
+				EAF91D141DE5DB8100A04AC9 /* MP-YoogoooTests.xctest */,
+				EAF91D1F1DE5DB8100A04AC9 /* MP-YoogoooUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAF91D021DE5DB8100A04AC9 /* MP-Yoogooo */ = {
+			isa = PBXGroup;
+			children = (
+				EAF91D031DE5DB8100A04AC9 /* AppDelegate.swift */,
+				EAF91D051DE5DB8100A04AC9 /* ViewController.swift */,
+				EA1FCAD41DE748F900059F19 /* SWRevealViewController.h */,
+				EA1FCAD51DE748F900059F19 /* SWRevealViewController.m */,
+				EAF91D071DE5DB8100A04AC9 /* Main.storyboard */,
+				EAF91D0A1DE5DB8100A04AC9 /* Assets.xcassets */,
+				EAF91D0F1DE5DB8100A04AC9 /* Info.plist */,
+				EA1FCAD31DE748F800059F19 /* MP-Yoogooo-Bridging-Header.h */,
+				EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */,
+				EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */,
+				EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */,
+				EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */,
+				EA1FCAE11DE7C00500059F19 /* InventarioViewController.swift */,
+				EA1FCAE31DE7C01A00059F19 /* CdCViewController.swift */,
+				EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */,
+			);
+			path = "MP-Yoogooo";
+			sourceTree = "<group>";
+		};
+		EAF91D171DE5DB8100A04AC9 /* MP-YoogoooTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAF91D181DE5DB8100A04AC9 /* MP_YoogoooTests.swift */,
+				EAF91D1A1DE5DB8100A04AC9 /* Info.plist */,
+			);
+			path = "MP-YoogoooTests";
+			sourceTree = "<group>";
+		};
+		EAF91D221DE5DB8100A04AC9 /* MP-YoogoooUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EAF91D231DE5DB8100A04AC9 /* MP_YoogoooUITests.swift */,
+				EAF91D251DE5DB8100A04AC9 /* Info.plist */,
+			);
+			path = "MP-YoogoooUITests";
+			sourceTree = "<group>";
+		};
+		EAF9F1D71DE8CF8000B7AB6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAF9F1DE1DE8CF8000B7AB6B /* Charts.framework */,
+				EAF9F1E01DE8CF8000B7AB6B /* ChartsTests.xctest */,
+				EAF9F1E21DE8CF8000B7AB6B /* ChartsRealm.framework */,
+				EAF9F1E41DE8CF8000B7AB6B /* ChartsRealmTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAF91CFF1DE5DB8100A04AC9 /* MP-Yoogooo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF91D281DE5DB8100A04AC9 /* Build configuration list for PBXNativeTarget "MP-Yoogooo" */;
+			buildPhases = (
+				EAF91CFC1DE5DB8100A04AC9 /* Sources */,
+				EAF91CFD1DE5DB8100A04AC9 /* Frameworks */,
+				EAF91CFE1DE5DB8100A04AC9 /* Resources */,
+				EA325FC71DE8C9060048D3C2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA6DECEA1DE8EED50085584B /* PBXTargetDependency */,
+			);
+			name = "MP-Yoogooo";
+			productName = "MP-Yoogooo";
+			productReference = EAF91D001DE5DB8100A04AC9 /* MP-Yoogooo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAF91D131DE5DB8100A04AC9 /* MP-YoogoooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF91D2B1DE5DB8100A04AC9 /* Build configuration list for PBXNativeTarget "MP-YoogoooTests" */;
+			buildPhases = (
+				EAF91D101DE5DB8100A04AC9 /* Sources */,
+				EAF91D111DE5DB8100A04AC9 /* Frameworks */,
+				EAF91D121DE5DB8100A04AC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAF91D161DE5DB8100A04AC9 /* PBXTargetDependency */,
+			);
+			name = "MP-YoogoooTests";
+			productName = "MP-YoogoooTests";
+			productReference = EAF91D141DE5DB8100A04AC9 /* MP-YoogoooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EAF91D1E1DE5DB8100A04AC9 /* MP-YoogoooUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF91D2E1DE5DB8100A04AC9 /* Build configuration list for PBXNativeTarget "MP-YoogoooUITests" */;
+			buildPhases = (
+				EAF91D1B1DE5DB8100A04AC9 /* Sources */,
+				EAF91D1C1DE5DB8100A04AC9 /* Frameworks */,
+				EAF91D1D1DE5DB8100A04AC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAF91D211DE5DB8100A04AC9 /* PBXTargetDependency */,
+			);
+			name = "MP-YoogoooUITests";
+			productName = "MP-YoogoooUITests";
+			productReference = EAF91D1F1DE5DB8100A04AC9 /* MP-YoogoooUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAF91CF81DE5DB8100A04AC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Sleyter Angulo";
+				TargetAttributes = {
+					EAF91CFF1DE5DB8100A04AC9 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 44335MTLSG;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+					EAF91D131DE5DB8100A04AC9 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 44335MTLSG;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EAF91CFF1DE5DB8100A04AC9;
+					};
+					EAF91D1E1DE5DB8100A04AC9 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 44335MTLSG;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EAF91CFF1DE5DB8100A04AC9;
+					};
+				};
+			};
+			buildConfigurationList = EAF91CFB1DE5DB8100A04AC9 /* Build configuration list for PBXProject "MP-Yoogooo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAF91CF71DE5DB8100A04AC9;
+			productRefGroup = EAF91D011DE5DB8100A04AC9 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EAF9F1D71DE8CF8000B7AB6B /* Products */;
+					ProjectRef = EAF9F1D61DE8CF8000B7AB6B /* Charts.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EAF91CFF1DE5DB8100A04AC9 /* MP-Yoogooo */,
+				EAF91D131DE5DB8100A04AC9 /* MP-YoogoooTests */,
+				EAF91D1E1DE5DB8100A04AC9 /* MP-YoogoooUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EAF9F1DE1DE8CF8000B7AB6B /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = EAF9F1DD1DE8CF8000B7AB6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EAF9F1E01DE8CF8000B7AB6B /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = EAF9F1DF1DE8CF8000B7AB6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EAF9F1E21DE8CF8000B7AB6B /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = EAF9F1E11DE8CF8000B7AB6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EAF9F1E41DE8CF8000B7AB6B /* ChartsRealmTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsRealmTests.xctest;
+			remoteRef = EAF9F1E31DE8CF8000B7AB6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAF91CFE1DE5DB8100A04AC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF91D0B1DE5DB8100A04AC9 /* Assets.xcassets in Resources */,
+				EAF91D091DE5DB8100A04AC9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF91D121DE5DB8100A04AC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF91D1D1DE5DB8100A04AC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAF91CFC1DE5DB8100A04AC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1FCADA1DE7BFA500059F19 /* HomeViewController.swift in Sources */,
+				EAF91D061DE5DB8100A04AC9 /* ViewController.swift in Sources */,
+				EA1FCADE1DE7BFE300059F19 /* CxCViewController.swift in Sources */,
+				EAF91D041DE5DB8100A04AC9 /* AppDelegate.swift in Sources */,
+				EA1FCAE01DE7BFF400059F19 /* CxPViewController.swift in Sources */,
+				EA1FCAE41DE7C01A00059F19 /* CdCViewController.swift in Sources */,
+				EA1FCADC1DE7BFCD00059F19 /* FacturacionViewController.swift in Sources */,
+				EA1FCAD61DE748F900059F19 /* SWRevealViewController.m in Sources */,
+				EA1FCAE21DE7C00500059F19 /* InventarioViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF91D101DE5DB8100A04AC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF91D191DE5DB8100A04AC9 /* MP_YoogoooTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF91D1B1DE5DB8100A04AC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF91D241DE5DB8100A04AC9 /* MP_YoogoooUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA6DECEA1DE8EED50085584B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = EA6DECE91DE8EED50085584B /* PBXContainerItemProxy */;
+		};
+		EAF91D161DE5DB8100A04AC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAF91CFF1DE5DB8100A04AC9 /* MP-Yoogooo */;
+			targetProxy = EAF91D151DE5DB8100A04AC9 /* PBXContainerItemProxy */;
+		};
+		EAF91D211DE5DB8100A04AC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAF91CFF1DE5DB8100A04AC9 /* MP-Yoogooo */;
+			targetProxy = EAF91D201DE5DB8100A04AC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAF91D071DE5DB8100A04AC9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAF91D081DE5DB8100A04AC9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAF91D261DE5DB8100A04AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAF91D271DE5DB8100A04AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAF91D291DE5DB8100A04AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 44335MTLSG;
+				INFOPLIST_FILE = "MP-Yoogooo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-Yoogooo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MP-Yoogooo/MP-Yoogooo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Debug;
+		};
+		EAF91D2A1DE5DB8100A04AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 44335MTLSG;
+				INFOPLIST_FILE = "MP-Yoogooo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-Yoogooo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MP-Yoogooo/MP-Yoogooo-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Release;
+		};
+		EAF91D2C1DE5DB8100A04AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 44335MTLSG;
+				INFOPLIST_FILE = "MP-YoogoooTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-YoogoooTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MP-Yoogooo.app/MP-Yoogooo";
+			};
+			name = Debug;
+		};
+		EAF91D2D1DE5DB8100A04AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 44335MTLSG;
+				INFOPLIST_FILE = "MP-YoogoooTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-YoogoooTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MP-Yoogooo.app/MP-Yoogooo";
+			};
+			name = Release;
+		};
+		EAF91D2F1DE5DB8100A04AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 44335MTLSG;
+				INFOPLIST_FILE = "MP-YoogoooUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-YoogoooUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "MP-Yoogooo";
+			};
+			name = Debug;
+		};
+		EAF91D301DE5DB8100A04AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 44335MTLSG;
+				INFOPLIST_FILE = "MP-YoogoooUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-YoogoooUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "MP-Yoogooo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAF91CFB1DE5DB8100A04AC9 /* Build configuration list for PBXProject "MP-Yoogooo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF91D261DE5DB8100A04AC9 /* Debug */,
+				EAF91D271DE5DB8100A04AC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF91D281DE5DB8100A04AC9 /* Build configuration list for PBXNativeTarget "MP-Yoogooo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF91D291DE5DB8100A04AC9 /* Debug */,
+				EAF91D2A1DE5DB8100A04AC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF91D2B1DE5DB8100A04AC9 /* Build configuration list for PBXNativeTarget "MP-YoogoooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF91D2C1DE5DB8100A04AC9 /* Debug */,
+				EAF91D2D1DE5DB8100A04AC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF91D2E1DE5DB8100A04AC9 /* Build configuration list for PBXNativeTarget "MP-YoogoooUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF91D2F1DE5DB8100A04AC9 /* Debug */,
+				EAF91D301DE5DB8100A04AC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAF91CF81DE5DB8100A04AC9 /* Project object */;
+}
