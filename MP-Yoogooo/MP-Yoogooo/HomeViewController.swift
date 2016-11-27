@@ -10,6 +10,7 @@ import Charts
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -31,21 +32,33 @@ class HomeViewController: UIViewController {
         
     }
     
-    func setChart(xAxisLabels: [String], values: [Double]){
-        barChart.noDataText = "No se pudo obtener los datos"
-        barChart.noDataTextDescription = "Error"
+    func setChart(dataPoints: [String], values: [Double]){
+        var dataEntries: [ChartDataEntry] = []
         
-        var dataEntries: [BarChartDataEntry] = []
-        for i in 0..<xAxisLabels.count{
-            dataEntries.append(BarChartDataEntry(value: values[i], xIndex: i))
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
         }
         
-        let charDataSet = BarChartDataSet (yVals: dataEntries, label: "Weight")
-        let chartData = BarChartData (xVals: xAxisLabels, dataSet: charDataSet)
-        barChart.data = chartData
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Monto")
+        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChart.data = pieChartData
+        
+        var colors: [UIColor] = []
+        
+        for _ in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
+        
         
     }
-    
-    
-    
+        
 }
+

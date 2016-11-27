@@ -157,7 +157,7 @@
                                 </constraints>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNW-9D-agF">
-                                <rect key="frame" x="145" y="560" width="84" height="33"/>
+                                <rect key="frame" x="145" y="505" width="84" height="33"/>
                                 <color key="backgroundColor" red="1" green="0.6705882353" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="0yN-8I-i9P"/>
@@ -167,18 +167,27 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Guito" translatesAutoresizingMaskIntoConstraints="NO" id="YKp-qd-2ng">
+                                <rect key="frame" x="218" y="529" width="157" height="138"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="7U3-gQ-chJ"/>
+                                    <constraint firstAttribute="height" constant="138" id="twJ-OQ-GTy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.58431372550000005" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="YKp-qd-2ng" firstAttribute="bottom" secondItem="TNF-dB-UlR" secondAttribute="top" id="2g5-K0-uPS"/>
                             <constraint firstAttribute="trailing" secondItem="MG1-A0-OOS" secondAttribute="trailing" id="2if-AV-U2F"/>
                             <constraint firstItem="MG1-A0-OOS" firstAttribute="leading" secondItem="MO0-Bh-loy" secondAttribute="leading" id="77E-XQ-Oud"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lie-Zf-OPX" secondAttribute="trailing" constant="47" id="ERK-OH-DB2"/>
                             <constraint firstItem="MG1-A0-OOS" firstAttribute="top" secondItem="Dt0-bg-SKr" secondAttribute="bottom" id="GDq-L2-5to"/>
                             <constraint firstItem="Tmj-ln-5Xp" firstAttribute="leading" secondItem="MO0-Bh-loy" secondAttribute="leadingMargin" constant="37" id="Gin-4e-Xt7"/>
                             <constraint firstItem="MG1-A0-OOS" firstAttribute="centerX" secondItem="xNW-9D-agF" secondAttribute="centerX" id="ICw-KR-DjC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YKp-qd-2ng" secondAttribute="trailing" constant="-16" id="Nez-mh-kci"/>
                             <constraint firstItem="Tmj-ln-5Xp" firstAttribute="top" secondItem="MG1-A0-OOS" secondAttribute="bottom" constant="22" id="Noq-qD-Cbi"/>
                             <constraint firstItem="Lie-Zf-OPX" firstAttribute="leading" secondItem="Tmj-ln-5Xp" secondAttribute="trailing" constant="39" id="hdV-70-nAU"/>
-                            <constraint firstItem="TNF-dB-UlR" firstAttribute="top" secondItem="xNW-9D-agF" secondAttribute="bottom" constant="74" id="pZ1-Vi-IXe"/>
+                            <constraint firstItem="TNF-dB-UlR" firstAttribute="top" secondItem="xNW-9D-agF" secondAttribute="bottom" constant="129" id="pZ1-Vi-IXe"/>
                             <constraint firstItem="Tmj-ln-5Xp" firstAttribute="centerY" secondItem="Lie-Zf-OPX" secondAttribute="centerY" id="qkV-vA-bMP"/>
                         </constraints>
                     </view>
@@ -204,7 +213,27 @@
                     <view key="view" contentMode="scaleToFill" id="TQU-co-CeH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Guito" translatesAutoresizingMaskIntoConstraints="NO" id="vEt-g7-c5D">
+                                <rect key="frame" x="218" y="529" width="157" height="138"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="edr-aI-TL3"/>
+                                </constraints>
+                            </imageView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Cód. Factura o Nombre cliente" translatesAutoresizingMaskIntoConstraints="NO" id="Ajt-0B-3nh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58431372550000005" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.58431372550000005" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" red="0.58431372550000005" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vEt-g7-c5D" firstAttribute="top" secondItem="Bv6-dt-hlg" secondAttribute="bottom" constant="465" id="TR5-61-3sP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vEt-g7-c5D" secondAttribute="trailing" constant="-16" id="Ue1-up-mxU"/>
+                            <constraint firstItem="vEt-g7-c5D" firstAttribute="bottom" secondItem="ZdS-mL-OQK" secondAttribute="top" id="ei1-e2-Yab"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cuentas por Cobrar" id="Okh-Wc-rhJ">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="fv9-Rd-hpL"/>
@@ -215,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edo-8s-Cma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="496"/>
+            <point key="canvasLocation" x="3560.8000000000002" y="495.20239880059972"/>
         </scene>
         <!--Cuentas por Pagar-->
         <scene sceneID="hch-nV-juY">
@@ -228,7 +257,20 @@
                     <view key="view" contentMode="scaleToFill" id="tra-s3-TdW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Guito" translatesAutoresizingMaskIntoConstraints="NO" id="YyX-cQ-lRa">
+                                <rect key="frame" x="218" y="529" width="157" height="138"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="p4a-Xc-JM8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.58431372550000005" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YyX-cQ-lRa" secondAttribute="trailing" id="ket-eN-JKK"/>
+                            <constraint firstItem="YyX-cQ-lRa" firstAttribute="bottom" secondItem="GLy-Xo-ys7" secondAttribute="top" id="mmC-fT-PMc"/>
+                            <constraint firstItem="YyX-cQ-lRa" firstAttribute="top" secondItem="4s8-Q0-MRF" secondAttribute="bottom" constant="465" id="nu4-rm-wHh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cuentas por Pagar" id="adM-rn-a41">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="FtY-Pt-65E"/>
@@ -381,7 +423,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-8R-98g" customClass="BarChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-8R-98g" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="310" width="375" height="329"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.58431372550000005" green="0.71764705880000002" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -418,6 +460,7 @@
                     <connections>
                         <outlet property="barChart" destination="TfJ-8R-98g" id="8TR-N2-KAf"/>
                         <outlet property="menuButton" destination="pYH-or-uAU" id="Xyx-0M-4Hc"/>
+                        <outlet property="pieChart" destination="TfJ-8R-98g" id="acO-CF-9Lm"/>
                         <outlet property="searchDisplayController" destination="lwC-xf-Igu" id="vef-4K-mWG"/>
                     </connections>
                 </viewController>
@@ -689,7 +732,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IR7-g4-ebI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5N7-0z-JXH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5N7-0z-JXH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -707,7 +750,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jnp-WI-vJc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fHX-4k-Vd0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fHX-4k-Vd0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -725,7 +768,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JM1-ot-kEG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FHJ-t4-MjH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FHJ-t4-MjH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -743,7 +786,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EdO-hH-My1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GYd-yy-Rnr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GYd-yy-Rnr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -761,7 +804,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FOr-hn-f9f" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9L-al-yJa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E9L-al-yJa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -779,7 +822,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V3C-fk-hRP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Yew-pO-rcs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yew-pO-rcs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -798,6 +841,7 @@
         <image name="CxC" width="219" height="143"/>
         <image name="CxP" width="221" height="153"/>
         <image name="Facturacion" width="180" height="209"/>
+        <image name="Guito" width="209" height="182"/>
         <image name="Home" width="208" height="205"/>
         <image name="Image" width="954" height="298"/>
         <image name="Inventario" width="185" height="208"/>
