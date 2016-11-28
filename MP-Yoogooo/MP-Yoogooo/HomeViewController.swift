@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let typeCredit = ["Credito", "Contacto"]
+        let typeCredit = ["Crédito", "Contado"]
         let monto = [768725.0,509548.0]
         
         setChart(typeCredit, values: monto)
@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Monto")
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         pieChart.data = pieChartData
         
