@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cierre_caja.png",
+      "filename" : "caja_android-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cierre_caja-1.png",
+      "filename" : "caja_android-3.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cierre_caja-2.png",
+      "filename" : "caja_android-4.png",
       "scale" : "3x"
     }
   ],
