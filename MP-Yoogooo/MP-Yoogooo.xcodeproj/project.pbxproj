@@ -17,6 +17,8 @@
 		EAA12EB11DEC67AC002B0F1B /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA12EAA1DEC6768002B0F1B /* Charts.framework */; };
 		EAA12EB21DEC67AC002B0F1B /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EAA12EAA1DEC6768002B0F1B /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EAA12EB61DEC733A002B0F1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA12EB51DEC733A002B0F1B /* LoginViewController.swift */; };
+		EAA12EB81DEC7F98002B0F1B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA12EB71DEC7F98002B0F1B /* Bolts.framework */; };
+		EAA12EBA1DEC7FA5002B0F1B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA12EB91DEC7FA5002B0F1B /* Parse.framework */; };
 		EAF91D041DE5DB8100A04AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF91D031DE5DB8100A04AC9 /* AppDelegate.swift */; };
 		EAF91D061DE5DB8100A04AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF91D051DE5DB8100A04AC9 /* ViewController.swift */; };
 		EAF91D091DE5DB8100A04AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF91D071DE5DB8100A04AC9 /* Main.storyboard */; };
@@ -103,6 +105,8 @@
 		EA1FCAE31DE7C01A00059F19 /* CdCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CdCViewController.swift; sourceTree = "<group>"; };
 		EAA12EA21DEC6768002B0F1B /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-2.3.0/Charts.xcodeproj"; sourceTree = "<group>"; };
 		EAA12EB51DEC733A002B0F1B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EAA12EB71DEC7F98002B0F1B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		EAA12EB91DEC7FA5002B0F1B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		EAE967741DE7EA9600227144 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		EAF91D001DE5DB8100A04AC9 /* MP-Yoogooo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MP-Yoogooo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF91D031DE5DB8100A04AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA12EB11DEC67AC002B0F1B /* Charts.framework in Frameworks */,
+				EAA12EBA1DEC7FA5002B0F1B /* Parse.framework in Frameworks */,
+				EAA12EB81DEC7F98002B0F1B /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,12 +203,14 @@
 				EA1FCAD31DE748F800059F19 /* MP-Yoogooo-Bridging-Header.h */,
 				EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */,
 				EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */,
+				EAA12EB51DEC733A002B0F1B /* LoginViewController.swift */,
 				EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */,
 				EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */,
 				EA1FCAE11DE7C00500059F19 /* InventarioViewController.swift */,
 				EA1FCAE31DE7C01A00059F19 /* CdCViewController.swift */,
+				EAA12EB91DEC7FA5002B0F1B /* Parse.framework */,
+				EAA12EB71DEC7F98002B0F1B /* Bolts.framework */,
 				EAA12EA21DEC6768002B0F1B /* Charts.xcodeproj */,
-				EAA12EB51DEC733A002B0F1B /* LoginViewController.swift */,
 			);
 			path = "MP-Yoogooo";
 			sourceTree = "<group>";
@@ -566,6 +574,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 44335MTLSG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MP-Yoogooo",
+				);
 				INFOPLIST_FILE = "MP-Yoogooo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-Yoogooo";
@@ -583,6 +595,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 44335MTLSG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MP-Yoogooo",
+				);
 				INFOPLIST_FILE = "MP-Yoogooo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tect.MP-Yoogooo";
