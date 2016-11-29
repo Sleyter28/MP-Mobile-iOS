@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
 
             self.data_request_2(db_Name1!)
             
-            print(dataString)
+            //print(dataString)
             
         }
         
@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
         let paramString = "email="+txtEmail.text!+"&"+"password="+txtPassword.text!+"&"+"DB_name="+DB_name
-        print(paramString)
+        //print(paramString)
         request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = session.dataTaskWithRequest(request) {
@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
             }
             
             let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(dataString)
+            //print(dataString)
             
         }
         

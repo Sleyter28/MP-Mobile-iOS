@@ -14,14 +14,37 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet weak var lblContado: UILabel!
+    @IBOutlet weak var lblCredito: UILabel!
+    
+    let dbName = "demomovil"
+    let typeCredit = ["Crédito", "Contado"]
+    var contado = 0.0
+    var credito = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let typeCredit = ["Crédito", "Contado"]
+        //data_request(dbName, tipo: "1")
         let monto = [768725.0,509548.0]
-        
         setChart(typeCredit, values: monto)
+        
+        getCurrentDay()
+        
+        self.closeTaskService("1", completionHandler: { (response) -> () in
+            //print(response)
+            self.contado = (response as NSString).doubleValue
+            self.lblContado.text = "¢"+String(self.contado)
+            print(self.contado)
+        })
+        self.closeTaskService("2", completionHandler: { (response) -> () in
+            //print(response)
+            self.credito = (response as NSString).doubleValue
+            self.lblCredito.text = "¢"+String(self.credito)
+            print(self.credito)
+        })
+        
         
         
         if self.revealViewController() != nil {
@@ -58,6 +81,33 @@ class HomeViewController: UIViewController {
         pieChartDataSet.colors = colors
         
         
+    }
+    
+    func closeTaskService(tipo: String, completionHandler: (response: NSString) -> ()) {
+        let fecha = getCurrentDay()
+        print(fecha)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
+        request.HTTPMethod = "POST"
+        let postParams = "fecha="+fecha+"&"+"DB_name="+dbName+"&"+"tipo="+tipo
+        
+        request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            //print("response = \(response)")
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            //print("responseString = \(responseString!)")
+            completionHandler(response: responseString!)
+        }
+        task.resume()
+    }
+    
+    func getCurrentDay ()->String{
+        let todaysDate:NSDate = NSDate()
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let todayString:String = dateFormatter.stringFromDate(todaysDate)
+        //print(todayString)
+        return todayString
     }
         
 }
