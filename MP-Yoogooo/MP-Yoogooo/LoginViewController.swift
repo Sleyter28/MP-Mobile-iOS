@@ -7,17 +7,19 @@
 //
 
 import UIKit
-import Foundation
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-
+    
+    let dato = NSUserDefaults()
     
     @IBAction func btnLogin(sender: AnyObject) {
         let email = txtEmail.text
         let password = txtPassword.text
+        
+        
         
         if (email!.isEmpty || password!.isEmpty){
             let alertController = UIAlertController(title: "Inicio de Sesión fallido!", message: "El campo 'Email' o 'Contraseña' están en vacíos!", preferredStyle: .Alert)
@@ -71,13 +73,11 @@ class LoginViewController: UIViewController {
             let dataString = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
             //let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             let db_Name = dataString["DB_name"]
-            
+        
             let db_Name1: String? = db_Name as AnyObject? as? String
-
+            
             self.data_request_2(db_Name1!)
-            
-            //print(dataString)
-            
+            //print(self.dato.objectForKey("dbName"))
         }
         
         task.resume()
@@ -87,7 +87,8 @@ class LoginViewController: UIViewController {
     {
         let url:NSURL = NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/loginS2.php")!
         let session = NSURLSession.sharedSession()
-        
+        self.dato.setValue(DB_name, forKey: "dbName")
+        //print("The name of db is: "+DB_name)
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
@@ -99,17 +100,24 @@ class LoginViewController: UIViewController {
         let task = session.dataTaskWithRequest(request) {
             (
             let data, let response, let error) in
-            
             guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
                 print("error")
                 return
             }
-            
             let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             //print(dataString)
+            
             
         }
         
         task.resume()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
+        
     }
 }

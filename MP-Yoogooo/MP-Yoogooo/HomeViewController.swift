@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import CoreData
 
 class HomeViewController: UIViewController {
     
@@ -17,35 +18,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lblContado: UILabel!
     @IBOutlet weak var lblCredito: UILabel!
     
-    let dbName = "demomovil"
+    let dato = NSUserDefaults()
+    
     let typeCredit = ["Crédito", "Contado"]
     var contado = 0.0
     var credito = 0.0
     
+    private var monto:[Double] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //data_request(dbName, tipo: "1")
-        let monto = [768725.0,509548.0]
-        setChart(typeCredit, values: monto)
-        
-        getCurrentDay()
-        
-        self.closeTaskService("1", completionHandler: { (response) -> () in
-            //print(response)
-            self.contado = (response as NSString).doubleValue
-            self.lblContado.text = "¢"+String(self.contado)
-            print(self.contado)
-        })
-        self.closeTaskService("2", completionHandler: { (response) -> () in
-            //print(response)
-            self.credito = (response as NSString).doubleValue
-            self.lblCredito.text = "¢"+String(self.credito)
-            print(self.credito)
-        })
-        
-        
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -53,6 +36,31 @@ class HomeViewController: UIViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        self.closeTaskService("1", completionHandler: { (response) -> () in
+            print(response)
+            self.dato.setValue(response, forKey: "Contado")
+            
+        })
+        self.credito = Double (self.closeTaskService("2", completionHandler: { (response) -> () in
+            print(response)
+            self.dato.setValue(response, forKey: "Credito")
+            //print(self.credito)
+        }))
+        
+        let cont = self.dato.objectForKey("Contado")
+        let contString: String = (cont as? String)!
+        let convertToDouble = Double((contString as? NSString)!.doubleValue)
+        //print(convertToDouble)
+        
+        let cred = self.dato.objectForKey("Credito")
+        let cred1: String = (cred as? String)!
+        
+        
+        self.lblContado.text = "¢"+contString
+        self.lblCredito.text = "¢"+cred1
+        
+        
+        setChart(typeCredit, values: [self.contado,self.credito])
     }
     
     func setChart(dataPoints: [String], values: [Double]){
@@ -77,19 +85,17 @@ class HomeViewController: UIViewController {
             let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
             colors.append(color)
         }
-        
         pieChartDataSet.colors = colors
-        
-        
     }
     
     func closeTaskService(tipo: String, completionHandler: (response: NSString) -> ()) {
         let fecha = getCurrentDay()
-        print(fecha)
         let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
+        let db = self.dato.objectForKey("dbName")
+        let db1: String = (db as? String)!
         request.HTTPMethod = "POST"
-        let postParams = "fecha="+fecha+"&"+"DB_name="+dbName+"&"+"tipo="+tipo
-        
+        let postParams = "fecha="+fecha+"&"+"DB_name="+db1+"&"+"tipo="+tipo
+        //print(postParams)
         request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -109,6 +115,6 @@ class HomeViewController: UIViewController {
         //print(todayString)
         return todayString
     }
-        
+    
 }
 
