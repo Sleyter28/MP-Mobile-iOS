@@ -21,8 +21,7 @@ class HomeViewController: UIViewController {
     let dato = NSUserDefaults()
     
     let typeCredit = ["Crédito", "Contado"]
-    var contado = 0.0
-    var credito = 0.0
+    
     
     private var monto:[Double] = []
     
@@ -39,28 +38,41 @@ class HomeViewController: UIViewController {
         self.closeTaskService("1", completionHandler: { (response) -> () in
             print(response)
             self.dato.setValue(response, forKey: "Contado")
+            //let stringwithoutquotes = response.stringByReplacingOccurrencesOfString("\"", withString: "")
+            
+            print("String in ")
+            //self.dato.setValue(response, forKey: "Contado")
             
         })
-        self.credito = Double (self.closeTaskService("2", completionHandler: { (response) -> () in
+        self.closeTaskService("2", completionHandler: { (response) -> () in
             print(response)
             self.dato.setValue(response, forKey: "Credito")
-            //print(self.credito)
-        }))
+            //print(prueba)
+        })
         
         let cont = self.dato.objectForKey("Contado")
         let contString: String = (cont as? String)!
-        let convertToDouble = Double((contString as? NSString)!.doubleValue)
-        //print(convertToDouble)
+        let stringwithoutquotes = contString.stringByReplacingOccurrencesOfString("\"", withString: "")
+        
+        let conValue = atoi(stringwithoutquotes)
         
         let cred = self.dato.objectForKey("Credito")
         let cred1: String = (cred as? String)!
+        let stringwithoutquotes1 = cred1.stringByReplacingOccurrencesOfString("\"", withString: "")
+        let credValue = atoi(stringwithoutquotes1)
         
         
-        self.lblContado.text = "¢"+contString
-        self.lblCredito.text = "¢"+cred1
+        self.lblContado.text = "¢"+stringwithoutquotes
+        self.lblCredito.text = "¢"+stringwithoutquotes1
         
-        
-        setChart(typeCredit, values: [self.contado,self.credito])
+        setChart(typeCredit, values: [conValue,credValue])
+    }
+    
+    func atoi (valor: String)->Double{
+        //print(valor)
+        let value = (valor as NSString).doubleValue
+        print("el valor es: "+String(value))
+        return value
     }
     
     func setChart(dataPoints: [String], values: [Double]){
@@ -88,7 +100,7 @@ class HomeViewController: UIViewController {
         pieChartDataSet.colors = colors
     }
     
-    func closeTaskService(tipo: String, completionHandler: (response: NSString) -> ()) {
+    func closeTaskService(tipo: String, completionHandler: (response:String) -> ()) {
         let fecha = getCurrentDay()
         let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
         let db = self.dato.objectForKey("dbName")
@@ -100,9 +112,10 @@ class HomeViewController: UIViewController {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             //print("response = \(response)")
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            //print("responseString = \(responseString!)")
-            completionHandler(response: responseString!)
+            let responseString: String = String(data: data!, encoding: NSUTF8StringEncoding)!
+            
+            //print("responseString = "+responseString)
+            
         }
         task.resume()
     }
