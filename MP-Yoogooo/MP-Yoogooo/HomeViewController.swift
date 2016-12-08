@@ -7,7 +7,6 @@
 
 import UIKit
 import Charts
-import CoreData
 
 class HomeViewController: UIViewController {
     
@@ -37,42 +36,76 @@ class HomeViewController: UIViewController {
         
         self.closeTaskService("1", completionHandler: { (response) -> () in
             print(response)
-            self.dato.setValue(response, forKey: "Contado")
-            //let stringwithoutquotes = response.stringByReplacingOccurrencesOfString("\"", withString: "")
-            
-            print("String in ")
-            //self.dato.setValue(response, forKey: "Contado")
-            
         })
         self.closeTaskService("2", completionHandler: { (response) -> () in
             print(response)
-            self.dato.setValue(response, forKey: "Credito")
-            //print(prueba)
         })
         
+        //Contado
         let cont = self.dato.objectForKey("Contado")
-        let contString: String = (cont as? String)!
-        let stringwithoutquotes = contString.stringByReplacingOccurrencesOfString("\"", withString: "")
+        let monCon = cont as AnyObject? as? String
+        print("monto contado: "+monCon!)
+        let conValue = atoi(monCon!)
         
-        let conValue = atoi(stringwithoutquotes)
-        
+        //Credito
         let cred = self.dato.objectForKey("Credito")
-        let cred1: String = (cred as? String)!
-        let stringwithoutquotes1 = cred1.stringByReplacingOccurrencesOfString("\"", withString: "")
-        let credValue = atoi(stringwithoutquotes1)
+        let monCred = cred as AnyObject? as? String
+        print("monto credito: "+monCred!)
+        let credValue = atoi(monCred!)
         
+        //Setting values of labels
+        self.lblContado.text = "¢"+monCon!
+        self.lblCredito.text = "¢"+monCred!
         
-        self.lblContado.text = "¢"+stringwithoutquotes
-        self.lblCredito.text = "¢"+stringwithoutquotes1
-        
+        //Setting values of PieChart
         setChart(typeCredit, values: [conValue,credValue])
     }
     
     func atoi (valor: String)->Double{
         //print(valor)
         let value = (valor as NSString).doubleValue
-        print("el valor es: "+String(value))
+        //print("el valor es: "+String(value))
         return value
+    }
+    
+    func closeTaskService(tipo: String, completionHandler: (response:NSString) -> ()) {
+        let fecha = getCurrentDay()
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
+        let db = self.dato.objectForKey("dbName")
+        let db1 = db as AnyObject? as? String
+        print(db1)
+        request.HTTPMethod = "POST"
+        let postParams = "fecha="+fecha+"&"+"DB_name=demomovil"+"&"+"tipo="+tipo
+        print(postParams)
+        request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            //print("response = \(response)") imprime los datos del servidor al que me conecte
+            let responseString: NSString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print("responseString = "+(responseString as String))
+            switch tipo{
+                
+                case "1":
+                    print("Entre al 1")
+                    self.dato.setValue(responseString as String, forKey: "Contado")
+                case "2":
+                    print("Entre al 2")
+                    self.dato.setValue(responseString as String, forKey: "Credito")
+                default:
+                    self.dato.setValue("0", forKey: "Contado")
+                    self.dato.setValue("0", forKey: "Credito")
+            }
+        }
+        task.resume()
+    }
+    
+    func getCurrentDay ()->String{
+        let todaysDate:NSDate = NSDate()
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let todayString:String = dateFormatter.stringFromDate(todaysDate)
+        //print(todayString)
+        return todayString
     }
     
     func setChart(dataPoints: [String], values: [Double]){
@@ -98,35 +131,6 @@ class HomeViewController: UIViewController {
             colors.append(color)
         }
         pieChartDataSet.colors = colors
-    }
-    
-    func closeTaskService(tipo: String, completionHandler: (response:String) -> ()) {
-        let fecha = getCurrentDay()
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
-        let db = self.dato.objectForKey("dbName")
-        let db1: String = (db as? String)!
-        request.HTTPMethod = "POST"
-        let postParams = "fecha="+fecha+"&"+"DB_name="+db1+"&"+"tipo="+tipo
-        //print(postParams)
-        request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            //print("response = \(response)")
-            let responseString: String = String(data: data!, encoding: NSUTF8StringEncoding)!
-            
-            //print("responseString = "+responseString)
-            
-        }
-        task.resume()
-    }
-    
-    func getCurrentDay ()->String{
-        let todaysDate:NSDate = NSDate()
-        let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let todayString:String = dateFormatter.stringFromDate(todaysDate)
-        //print(todayString)
-        return todayString
     }
     
 }

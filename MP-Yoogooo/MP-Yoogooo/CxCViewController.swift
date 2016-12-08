@@ -10,6 +10,7 @@ import UIKit
 
 class CxCViewController: UIViewController {
 
+    @IBOutlet weak var txtBusqueda: UISearchBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,5 +26,7 @@ class CxCViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
 }

@@ -73,13 +73,9 @@ class LoginViewController: UIViewController {
             let dataString = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
             //let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             let db_Name = dataString["DB_name"]
-            //print(db_Name)
             let db_Name1: String? = db_Name as AnyObject? as? String
-            //print(db_Name1)
             self.data_request_2(db_Name1!)
-            //print(self.dato.objectForKey("dbName"))
         }
-        
         task.resume()
     }
     
@@ -88,7 +84,6 @@ class LoginViewController: UIViewController {
         let url:NSURL = NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/loginS2.php")!
         let session = NSURLSession.sharedSession()
         self.dato.setValue(DB_name, forKey: "dbName")
-        //print("The name of db is: "+DB_name)
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
@@ -106,17 +101,12 @@ class LoginViewController: UIViewController {
             }
             let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             //print(dataString)
-            
         }
-        
         task.resume()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         self.view.endEditing(true)
-        
         return true
-        
     }
 }

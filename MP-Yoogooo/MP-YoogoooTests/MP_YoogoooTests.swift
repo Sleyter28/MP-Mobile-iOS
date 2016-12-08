@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MP_Yoogooo
+//@testable import MP_Yoogooo
 
 class MP_YoogoooTests: XCTestCase {
     
