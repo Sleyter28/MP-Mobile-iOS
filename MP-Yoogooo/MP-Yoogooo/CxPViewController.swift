@@ -10,6 +10,7 @@ import UIKit
 
 class CxPViewController: UIViewController {
 
+    @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()

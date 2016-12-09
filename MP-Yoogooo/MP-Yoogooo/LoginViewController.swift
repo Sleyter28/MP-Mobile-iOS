@@ -12,8 +12,10 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var btnLogin: UIButton!
     
     let dato = NSUserDefaults()
+    
     
     @IBAction func btnLogin(sender: AnyObject) {
         let email = txtEmail.text
@@ -47,7 +49,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        //btnLogin.backgroundColor = .clear
+        btnLogin.layer.cornerRadius = 8
+        btnLogin.layer.borderWidth = 1
+        btnLogin.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     func data_request()

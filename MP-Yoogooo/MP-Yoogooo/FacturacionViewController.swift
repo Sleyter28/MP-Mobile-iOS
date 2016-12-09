@@ -21,6 +21,9 @@ class FacturacionViewController: UIViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        
+        
     }
 
     //override func didReceiveMemoryWarning() {

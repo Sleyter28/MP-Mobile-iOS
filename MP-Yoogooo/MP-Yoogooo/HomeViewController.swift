@@ -44,18 +44,20 @@ class HomeViewController: UIViewController {
         //Contado
         let cont = self.dato.objectForKey("Contado")
         let monCon = cont as AnyObject? as? String
-        print("monto contado: "+monCon!)
-        let conValue = atoi(monCon!)
+        let valCont:String = (monCon as AnyObject? as? String)!
+        print("monto contado: "+String(valCont))
+        let conValue = atoi(String(valCont))
         
         //Credito
         let cred = self.dato.objectForKey("Credito")
         let monCred = cred as AnyObject? as? String
-        print("monto credito: "+monCred!)
-        let credValue = atoi(monCred!)
+        let valCred:String = (monCred as AnyObject? as? String)!
+        print("monto credito: "+String(valCred))
+        let credValue = atoi(String(valCred))
         
         //Setting values of labels
-        self.lblContado.text = "¢"+monCon!
-        self.lblCredito.text = "¢"+monCred!
+        self.lblContado.text = "¢"+valCont
+        self.lblCredito.text = "¢"+valCred
         
         //Setting values of PieChart
         setChart(typeCredit, values: [conValue,credValue])
@@ -73,9 +75,10 @@ class HomeViewController: UIViewController {
         let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
         let db = self.dato.objectForKey("dbName")
         let db1 = db as AnyObject? as? String
-        print(db1)
+        let dbName : String = (db1 as AnyObject? as? String)!
+        print(dbName)
         request.HTTPMethod = "POST"
-        let postParams = "fecha="+fecha+"&"+"DB_name=demomovil"+"&"+"tipo="+tipo
+        let postParams = "fecha="+fecha+"&"+"DB_name="+dbName+"&"+"tipo="+tipo
         print(postParams)
         request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -88,9 +91,11 @@ class HomeViewController: UIViewController {
                 case "1":
                     print("Entre al 1")
                     self.dato.setValue(responseString as String, forKey: "Contado")
+                    print(self.dato.objectForKey("Contado"))
                 case "2":
                     print("Entre al 2")
                     self.dato.setValue(responseString as String, forKey: "Credito")
+                    print(self.dato.objectForKey("Credito"))
                 default:
                     self.dato.setValue("0", forKey: "Contado")
                     self.dato.setValue("0", forKey: "Credito")
