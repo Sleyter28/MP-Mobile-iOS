@@ -10,6 +10,7 @@ import Charts
 
 class HomeViewController: UIViewController {
     
+    
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -17,12 +18,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lblContado: UILabel!
     @IBOutlet weak var lblCredito: UILabel!
     
-    let dato = NSUserDefaults()
+    let dato = UserDefaults()
     
     let typeCredit = ["Crédito", "Contado"]
     
     
-    private var monto:[Double] = []
+    fileprivate var monto:[Double] = []
     
     
     override func viewDidLoad() {
@@ -35,94 +36,102 @@ class HomeViewController: UIViewController {
         }
         
         self.closeTaskService("1", completionHandler: { (response) -> () in
-            print(response)
+            //print(response)
         })
         self.closeTaskService("2", completionHandler: { (response) -> () in
-            print(response)
+            //print(response)
         })
         
         //Contado
-        let cont = self.dato.objectForKey("Contado")
-        let monCon = cont as AnyObject? as? String
-        let valCont:String = (monCon as AnyObject? as? String)!
-        print("monto contado: "+String(valCont))
-        let conValue = atoi(String(valCont))
+        let cont: Double = self.dato.object(forKey: "Contado") as! Double
+        print(cont)
+        
         
         //Credito
-        let cred = self.dato.objectForKey("Credito")
-        let monCred = cred as AnyObject? as? String
-        let valCred:String = (monCred as AnyObject? as? String)!
-        print("monto credito: "+String(valCred))
-        let credValue = atoi(String(valCred))
+        let cred : Double = self.dato.object(forKey: "Credito") as! Double
+        print(cred)
+        
         
         //Setting values of labels
-        self.lblContado.text = "¢"+valCont
-        self.lblCredito.text = "¢"+valCred
+        self.lblContado.text = "¢"+String(cont)
+        self.lblContado.textColor = UIColor.white
+        self.lblContado.font = lblContado.font.withSize(16)
+        self.lblContado.textAlignment = NSTextAlignment.right
+        
+        
+        self.lblCredito.text = "¢"+String(cred)
+        self.lblCredito.textColor = UIColor.white
+        self.lblCredito.font = lblContado.font.withSize(16)
+        self.lblCredito.textAlignment = NSTextAlignment.right
         
         //Setting values of PieChart
-        setChart(typeCredit, values: [conValue,credValue])
+        setChart(typeCredit, values: [cont,cred])
+        //setChart(typeCredit, values: [1670.0,2345.50])
     }
     
-    func atoi (valor: String)->Double{
+    func atoi (_ valor: String)->Double{
         //print(valor)
         let value = (valor as NSString).doubleValue
         //print("el valor es: "+String(value))
         return value
     }
     
-    func closeTaskService(tipo: String, completionHandler: (response:NSString) -> ()) {
+    func closeTaskService(_ tipo: String, completionHandler: (_ response:NSString) -> ()) {
         let fecha = getCurrentDay()
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
-        let db = self.dato.objectForKey("dbName")
-        let db1 = db as AnyObject? as? String
-        let dbName : String = (db1 as AnyObject? as? String)!
-        print(dbName)
-        request.HTTPMethod = "POST"
+        
+        let db = self.dato.object(forKey: "dbName")
+        let dbName : String = db as Any as! String
+        
+        let request = NSMutableURLRequest(url: URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
+        request.httpMethod = "POST"
         let postParams = "fecha="+fecha+"&"+"DB_name="+dbName+"&"+"tipo="+tipo
         print(postParams)
-        request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            //print("response = \(response)") imprime los datos del servidor al que me conecte
-            let responseString: NSString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print("responseString = "+(responseString as String))
-            switch tipo{
-                
-                case "1":
-                    print("Entre al 1")
-                    self.dato.setValue(responseString as String, forKey: "Contado")
-                    print(self.dato.objectForKey("Contado"))
-                case "2":
-                    print("Entre al 2")
-                    self.dato.setValue(responseString as String, forKey: "Credito")
-                    print(self.dato.objectForKey("Credito"))
-                default:
-                    self.dato.setValue("0", forKey: "Contado")
-                    self.dato.setValue("0", forKey: "Credito")
+        request.httpBody = postParams.data(using: String.Encoding.utf8)
+        //let dataTask = session.dataTask(with: request as URLRequest) {data,response,error in
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            if let data = data,
+                let html = String(data: data, encoding: String.Encoding.utf8) {
+                //print("responseString = "+(responseString as String))
+                switch tipo{
+                    case "1":
+                        let montoCont: Dictionary = self.convertToDictionary(text: html)!
+                        let val1 : Double = montoCont["monto"] as! Double
+                        self.dato.set(val1, forKey: "Contado")
+                    
+                    case "2":
+                        //print("Entre al 2")
+                        let montoCred: Dictionary = self.convertToDictionary(text: html)!
+                        let val2 : Double = montoCred["monto"] as! Double
+                        self.dato.set(val2, forKey: "Credito")
+                    
+                    default:
+                        self.dato.setValue("0", forKey: "Contado")
+                        self.dato.setValue("0", forKey: "Credito")
+                }
             }
         }
         task.resume()
     }
     
     func getCurrentDay ()->String{
-        let todaysDate:NSDate = NSDate()
-        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        let todaysDate:Date = Date()
+        let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
-        let todayString:String = dateFormatter.stringFromDate(todaysDate)
+        let todayString:String = dateFormatter.string(from: todaysDate)
         //print(todayString)
         return todayString
     }
     
-    func setChart(dataPoints: [String], values: [Double]){
-        var dataEntries: [ChartDataEntry] = []
+    func setChart(_ dataPoints: [String], values: [Double]){
+        var dataEntries: [PieChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
-        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: " ")
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChart.data = pieChartData
         
         var colors: [UIColor] = []
@@ -138,5 +147,15 @@ class HomeViewController: UIViewController {
         pieChartDataSet.colors = colors
     }
     
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+    
 }
-

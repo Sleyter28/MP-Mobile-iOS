@@ -11,7 +11,9 @@ import UIKit
 class FacturacionViewController: UIViewController {
     
 
+    @IBOutlet weak var txtCantidad: UITextField!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var btnFacturar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +23,12 @@ class FacturacionViewController: UIViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        btnFacturar.layer.cornerRadius = 10
+        btnFacturar.layer.borderWidth = 1
+        btnFacturar.layer.borderColor = UIColor.black.cgColor
         
+        txtCantidad.layer.borderColor = UIColor.yellow.cgColor
         
         
     }
-
-    //override func didReceiveMemoryWarning() {
-      //  super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    //}
-    
-
 }

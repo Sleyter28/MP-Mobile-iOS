@@ -14,24 +14,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
-    let dato = NSUserDefaults()
+    let dato = UserDefaults()
     
     
-    @IBAction func btnLogin(sender: AnyObject) {
+    @IBAction func btnLogin(_ sender: AnyObject) {
         let email = txtEmail.text
         let password = txtPassword.text
         
         
         
         if (email!.isEmpty || password!.isEmpty){
-            let alertController = UIAlertController(title: "Inicio de Sesión fallido!", message: "El campo 'Email' o 'Contraseña' están en vacíos!", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Inicio de Sesión fallido!", message: "El campo 'Email' o 'Contraseña' están en vacíos!", preferredStyle: .alert)
             
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 // ...
             }
             alertController.addAction(OKAction)
             
-            self.presentViewController(alertController, animated: true) {
+            self.present(alertController, animated: true) {
                 // ...
             }
             
@@ -40,8 +40,8 @@ class LoginViewController: UIViewController {
             
             data_request()
             
-            let homeView = storyboard?.instantiateViewControllerWithIdentifier("revealViewController")
-            presentViewController(homeView!, animated: true, completion: nil)
+            let homeView = storyboard?.instantiateViewController(withIdentifier: "revealViewController")
+            present(homeView!, animated: true, completion: nil)
             
         }
         
@@ -52,66 +52,79 @@ class LoginViewController: UIViewController {
         //btnLogin.backgroundColor = .clear
         btnLogin.layer.cornerRadius = 8
         btnLogin.layer.borderWidth = 1
-        btnLogin.layer.borderColor = UIColor.blackColor().CGColor
+        btnLogin.layer.borderColor = UIColor.black.cgColor
     }
     
     func data_request()
     {
-        let url:NSURL = NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/loginS1.php")!
-        let session = NSURLSession.sharedSession()
+        let url:URL = URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/loginS1.php")!
+        _ = URLSession.shared
         
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         let paramString = "email="+txtEmail.text!
-        request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+        request.httpBody = paramString.data(using: String.Encoding.utf8)
         
-        let task = session.dataTaskWithRequest(request) {
-            (
-            let data, let response, let error) in
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            (data, response, error) in
             
-            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+            guard let _:Data = data, let _:URLResponse = response, error == nil else {
                 print("error")
                 return
             }
-            let dataString = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
-            //let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let db_Name = dataString["DB_name"]
-            let db_Name1: String? = db_Name as AnyObject? as? String
-            self.data_request_2(db_Name1!)
+            //
+            let dataString: String = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+            let dictionary: Dictionary = self.convertToDictionary(text: dataString)!
+            let dbName : String = dictionary["DB_name"] as! String
+            //print (dbName)
+            self.data_request_2(dbName)
+            self.dato.setValue(dbName, forKey: "dbName")
         }
         task.resume()
     }
     
-    func data_request_2(DB_name: String)
+    func data_request_2(_ DB_name: String)
     {
-        let url:NSURL = NSURL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/loginS2.php")!
-        let session = NSURLSession.sharedSession()
-        self.dato.setValue(DB_name, forKey: "dbName")
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        let url:URL = URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/loginS2.php")!
+        _ = URLSession.shared
+        
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         let paramString = "email="+txtEmail.text!+"&"+"password="+txtPassword.text!+"&"+"DB_name="+DB_name
-        //print(paramString)
-        request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+        request.httpBody = paramString.data(using: String.Encoding.utf8)
         
-        let task = session.dataTaskWithRequest(request) {
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
             (
-            let data, let response, let error) in
-            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+            data, response, error) in
+            guard let _:Data = data, let _:URLResponse = response, error == nil else {
                 print("error")
                 return
             }
-            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            //print(dataString)
+            let dataString:String = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+            let dictionary: Dictionary = self.convertToDictionary(text: dataString)!
+            //print(dictionary)
         }
         task.resume()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
+    }
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
     }
 }
