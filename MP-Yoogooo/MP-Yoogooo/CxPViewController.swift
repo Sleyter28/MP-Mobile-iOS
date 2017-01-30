@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
-class CxPViewController: UIViewController {
+class CxPViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var listData:[[String : AnyObject]] = [[String : AnyObject]]()
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     let dato = UserDefaults()
@@ -17,45 +21,72 @@ class CxPViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func searchBarSearchButtonClicked( _ searchBar: UISearchBar!)
-    {
+    func searchBarSearchButtonClicked( _ searchBar: UISearchBar!) -> String{
         let search: String = txtSearch.text!
         print(search)
-//        self.closeTaskService(search, completionHandler: { (response) -> () in
-//            print(response)
-//        })
+        
+        let db = self.dato.object(forKey: "dbName")
+        let dbName : String = db as Any as! String
+        
+        let id = self.dato.object(forKey: "id_company")
+        let idComp : String = id as Any as! String
+        
+        let parameters : Parameters = ["id_company":idComp,"DB_name":dbName,"valor":"%"+search+"%"]
+        
+        Alamofire.request( "http://demomp2015.yoogooo.com/demoMovil/Web-Service/CxP.php", method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: [:]).responseJSON(completionHandler: { response in
+            
+            print(response)
+            switch response.result{
+            case .success:
+                self.listData = response.result.value as! [[String:AnyObject]]
+                self.tableView.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
+        })
+        
+        return search
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.listData.count
         
     }
     
-//    func closeTaskService(_ valor: String, completionHandler: (_ response:NSString) -> ()) {
-//        let request = NSMutableURLRequest(url: URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/CxP.php")!)
-//        let db = self.dato.object(forKey: "dbName")
-//        let db1 = db as AnyObject? as? String
-//        let dbName : String = (db1 as AnyObject? as? String)!
-//        request.httpMethod = "POST"
-//        let postParams = "DB_name="+dbName+"&"+"valor=%"+valor+"%"
-//        print(postParams)
-//        request.httpBody = postParams.data(using: String.Encoding.utf8)
-//        let task = URLSession.shared.dataTask(with: request, completionHandler: {
-//            data, response, error in
-//            //print("response = \(response)") //imprime los datos del servidor al que me conecte
-//            let responseString: NSString = NSString(data: data!, encoding: String.Encoding.utf8)!
-//            print("responseString = "+(responseString as String))
-//        }) 
-//        task.resume()
-//    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellCxP", for: indexPath)
+        
+        let item = self.listData[indexPath.row]
+        cell.textLabel?.text = item["cuota"] as? String
+        
+        
+        return cell
+    }
+
     
 
 }

@@ -10,7 +10,6 @@ import Charts
 
 class HomeViewController: UIViewController {
     
-    
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -21,9 +20,6 @@ class HomeViewController: UIViewController {
     let dato = UserDefaults()
     
     let typeCredit = ["Crédito", "Contado"]
-    
-    
-    fileprivate var monto:[Double] = []
     
     
     override func viewDidLoad() {
@@ -44,12 +40,10 @@ class HomeViewController: UIViewController {
         
         //Contado
         let cont: Double = self.dato.object(forKey: "Contado") as! Double
-        print(cont)
         
         
         //Credito
         let cred : Double = self.dato.object(forKey: "Credito") as! Double
-        print(cred)
         
         
         //Setting values of labels
@@ -66,25 +60,21 @@ class HomeViewController: UIViewController {
         
         //Setting values of PieChart
         setChart(typeCredit, values: [cont,cred])
-        //setChart(typeCredit, values: [1670.0,2345.50])
     }
     
-    func atoi (_ valor: String)->Double{
-        //print(valor)
-        let value = (valor as NSString).doubleValue
-        //print("el valor es: "+String(value))
-        return value
-    }
     
     func closeTaskService(_ tipo: String, completionHandler: (_ response:NSString) -> ()) {
         let fecha = getCurrentDay()
         
         let db = self.dato.object(forKey: "dbName")
-        let dbName : String = db as Any as! String
+        let dbName : String? = db as Any as? String
         
+        let idC = self.dato.object(forKey: "id_company")
+        let idComp : String? = idC as Any as? String
         let request = NSMutableURLRequest(url: URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
         request.httpMethod = "POST"
-        let postParams = "fecha="+fecha+"&"+"DB_name="+dbName+"&"+"tipo="+tipo
+        let preparams : String? = "fecha="+fecha+"&"+"DB_name="+dbName!;
+        let postParams = preparams!+"&"+"id_company="+idComp!
         print(postParams)
         request.httpBody = postParams.data(using: String.Encoding.utf8)
         //let dataTask = session.dataTask(with: request as URLRequest) {data,response,error in
@@ -118,7 +108,6 @@ class HomeViewController: UIViewController {
         let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         let todayString:String = dateFormatter.string(from: todaysDate)
-        //print(todayString)
         return todayString
     }
     
