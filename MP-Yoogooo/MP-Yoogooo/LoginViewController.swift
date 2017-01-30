@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         
         
         if (email!.isEmpty || password!.isEmpty){
-            let alertController = UIAlertController(title: "Inicio de Sesión fallido!", message: "El campo 'Email' o 'Contraseña' están en vacíos!", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Inicio de Sesión fallido!", message: "El campo 'Email' o 'Contraseña' están vacíos!", preferredStyle: .alert)
             
             let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 // ...
@@ -83,8 +83,10 @@ class LoginViewController: UIViewController {
             let dataString: String = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
             let dictionary: Dictionary = self.convertToDictionary(text: dataString)!
             
+            
             let dbName : String = dictionary["DB_name"] as! String
             //print (dbName)
+            
             self.data_request_2(dbName)
             self.dato.setValue(dbName, forKey: "dbName")
         }
@@ -116,6 +118,7 @@ class LoginViewController: UIViewController {
             //print(dictionary)
             let idComp : String = dictionary["id_company"] as! String
             self.dato.setValue(idComp, forKey: "id_company")
+            
         }
         task.resume()
     }

@@ -14,7 +14,6 @@
 		EA1B4F1E1E3BF19A0062F7F5 /* bases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B4F1D1E3BF19A0062F7F5 /* bases.swift */; };
 		EA1FCAD61DE748F900059F19 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAD51DE748F900059F19 /* SWRevealViewController.m */; };
 		EA1FCADA1DE7BFA500059F19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */; };
-		EA1FCADC1DE7BFCD00059F19 /* FacturacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */; };
 		EA1FCADE1DE7BFE300059F19 /* CxCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */; };
 		EA1FCAE01DE7BFF400059F19 /* CxPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */; };
 		EA1FCAE21DE7C00500059F19 /* InventarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1FCAE11DE7C00500059F19 /* InventarioViewController.swift */; };
@@ -211,7 +210,6 @@
 		EA1FCAD41DE748F900059F19 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		EA1FCAD51DE748F900059F19 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacturacionViewController.swift; sourceTree = "<group>"; };
 		EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CxCViewController.swift; sourceTree = "<group>"; };
 		EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CxPViewController.swift; sourceTree = "<group>"; };
 		EA1FCAE11DE7C00500059F19 /* InventarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventarioViewController.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 				EAF91D0F1DE5DB8100A04AC9 /* Info.plist */,
 				EA1FCAD31DE748F800059F19 /* MP-Yoogooo-Bridging-Header.h */,
 				EA1FCAD91DE7BFA500059F19 /* HomeViewController.swift */,
-				EA1FCADB1DE7BFCD00059F19 /* FacturacionViewController.swift */,
 				EAA12EB51DEC733A002B0F1B /* LoginViewController.swift */,
 				EA1FCADD1DE7BFE300059F19 /* CxCViewController.swift */,
 				EA1FCADF1DE7BFF400059F19 /* CxPViewController.swift */,
@@ -656,7 +653,6 @@
 				EA1B4F1E1E3BF19A0062F7F5 /* bases.swift in Sources */,
 				EA1FCAE01DE7BFF400059F19 /* CxPViewController.swift in Sources */,
 				EA1FCAE41DE7C01A00059F19 /* CdCViewController.swift in Sources */,
-				EA1FCADC1DE7BFCD00059F19 /* FacturacionViewController.swift in Sources */,
 				EA1FCAD61DE748F900059F19 /* SWRevealViewController.m in Sources */,
 				EAA12EB61DEC733A002B0F1B /* LoginViewController.swift in Sources */,
 				EA1FCAE21DE7C00500059F19 /* InventarioViewController.swift in Sources */,

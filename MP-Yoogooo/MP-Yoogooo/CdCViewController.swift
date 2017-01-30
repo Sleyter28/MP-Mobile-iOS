@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CdCViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CdCViewController: UIViewController{
     
     var listData:[[String : AnyObject]] = [[String : AnyObject]]()
 
@@ -26,8 +26,7 @@ class CdCViewController: UIViewController, UITableViewDataSource, UITableViewDel
         let idComp : String = id as Any as! String
         
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -57,25 +56,6 @@ class CdCViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listData.count
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellCC", for: indexPath)
-        
-        let item = self.listData[indexPath.row]
-        cell.textLabel?.text = item["facturas"] as? String
-        
-        
-        return cell
     }
     
     

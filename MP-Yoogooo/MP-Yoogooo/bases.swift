@@ -11,4 +11,7 @@ import Foundation
 class base {
     var database:String = ""
     var company:String = ""
+    
+    
+    
 }

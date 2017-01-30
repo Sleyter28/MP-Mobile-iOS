@@ -17,13 +17,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lblContado: UILabel!
     @IBOutlet weak var lblCredito: UILabel!
     
-    let dato = UserDefaults()
+    let dato = UserDefaults.standard
     
     let typeCredit = ["Crédito", "Contado"]
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController!.navigationBar.barStyle = UIBarStyle.blackOpaque
+        navigationController!.navigationBar.tintColor = UIColor.white
+        
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -66,15 +71,14 @@ class HomeViewController: UIViewController {
     func closeTaskService(_ tipo: String, completionHandler: (_ response:NSString) -> ()) {
         let fecha = getCurrentDay()
         
-        let db = self.dato.object(forKey: "dbName")
-        let dbName : String? = db as Any as? String
+        let db = self.dato.string(forKey: "dbName")
         
-        let idC = self.dato.object(forKey: "id_company")
-        let idComp : String? = idC as Any as? String
+        let idC = self.dato.string(forKey: "id_company")
+    
         let request = NSMutableURLRequest(url: URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
         request.httpMethod = "POST"
-        let preparams : String? = "fecha="+fecha+"&"+"DB_name="+dbName!;
-        let postParams = preparams!+"&"+"id_company="+idComp!
+        let preparams : String? = "fecha="+fecha+"&"+"DB_name="+db!;
+        let postParams = preparams!+"&"+"id_company="+idC!
         print(postParams)
         request.httpBody = postParams.data(using: String.Encoding.utf8)
         //let dataTask = session.dataTask(with: request as URLRequest) {data,response,error in
