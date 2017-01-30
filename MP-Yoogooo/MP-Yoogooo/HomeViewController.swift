@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import Foundation
 
 class HomeViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lblContado: UILabel!
     @IBOutlet weak var lblCredito: UILabel!
     
-    let dato = UserDefaults.standard
+    let dato = UserDefaults()
     
     let typeCredit = ["Crédito", "Contado"]
     
@@ -44,11 +45,11 @@ class HomeViewController: UIViewController {
         })
         
         //Contado
-        let cont: Double = self.dato.object(forKey: "Contado") as! Double
+        let cont: Double = self.dato.double(forKey: "Contado")
         
         
         //Credito
-        let cred : Double = self.dato.object(forKey: "Credito") as! Double
+        let cred : Double = self.dato.double(forKey: "Credito")
         
         
         //Setting values of labels
@@ -74,13 +75,12 @@ class HomeViewController: UIViewController {
         let db = self.dato.string(forKey: "dbName")
         
         let idC = self.dato.string(forKey: "id_company")
-    
+        
         let request = NSMutableURLRequest(url: URL(string: "http://demomp2015.yoogooo.com/demoMovil/Web-Service/home.php")!)
         request.httpMethod = "POST"
-        let preparams : String? = "fecha="+fecha+"&"+"DB_name="+db!;
-        let postParams = preparams!+"&"+"id_company="+idC!
-        print(postParams)
-        request.httpBody = postParams.data(using: String.Encoding.utf8)
+        let postParams : String? = "DB_name="+db!+"&"+"fecha="+fecha+"&"+"tipo="+tipo+"&"+"id_company="+idC!
+        //print(postParams!)
+        request.httpBody = postParams!.data(using: String.Encoding.utf8)
         //let dataTask = session.dataTask(with: request as URLRequest) {data,response,error in
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             if let data = data,

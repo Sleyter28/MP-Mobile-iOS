@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class LoginViewController: UIViewController {
 
@@ -63,18 +64,20 @@ class LoginViewController: UIViewController {
         _ = URLSession.shared
         
         //este toma el valor de url y lo envia por Post
-        let request = NSMutableURLRequest(url: url)
+        let request = NSMutableURLRequest(url: url)//encargado de enviar datos al servidor
         request.httpMethod = "POST"
-        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData//esto para ignorar el cache
         
         //toma el valor de email y lo envia
         let paramString = "email="+txtEmail.text!
-        request.httpBody = paramString.data(using: String.Encoding.utf8)
+        request.httpBody = paramString.data(using: String.Encoding.utf8)//lo que devuelve lo trae en formato de utf8
         
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             (data, response, error) in
             
+            
+            //esto es como un if
             guard let _:Data = data, let _:URLResponse = response, error == nil else {
                 print("error")
                 return
@@ -118,17 +121,19 @@ class LoginViewController: UIViewController {
             //print(dictionary)
             let idComp : String = dictionary["id_company"] as! String
             self.dato.setValue(idComp, forKey: "id_company")
+            print(self.dato.string(forKey: "id_company")!)
             
         }
         task.resume()
     }
     
-    
+    //esconde el teclado
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
     }
     
+    //convierte a diccionario
     func convertToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {
